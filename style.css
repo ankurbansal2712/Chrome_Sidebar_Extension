@@ -1,0 +1,344 @@
+/* ── Toggle Button (base) ──────────────────────────────────── */
+
+#ai-sidebar-toggle {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: white;
+  width: 28px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px 0 0 6px;
+  font-size: 16px;
+  z-index: 9999;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+
+/* ── Sidebar Panel (base) ──────────────────────────────────── */
+
+#ai-sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0;
+  height: auto;
+  padding-bottom: 40px;
+  right: -220px;
+  width: 220px;
+  overflow: hidden !important;
+  border-left: 1px solid #2a2a2a;
+  z-index: 9998 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: right 0.3s ease;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.3);
+}
+
+#ai-sidebar.open {
+  right: 0 !important;
+}
+
+/* ── Sidebar Title (base) ──────────────────────────────────── */
+
+#ai-sidebar-title {
+  padding: 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #2a2a2a;
+  font-family: 'SF Mono', monospace;
+  flex-shrink: 0;
+}
+
+/* ── List Container (base) ─────────────────────────────────── */
+
+#ai-sidebar-list {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: scroll !important;
+  padding: 8px 0;
+}
+
+/* ── Each Question Item (base) ─────────────────────────────── */
+
+.ai-sidebar-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  padding: 10px 16px !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  font-family: -apple-system, sans-serif !important;
+  line-height: 1.5 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  transition: background 0.15s, color 0.15s;
+}
+
+/* ── Item Text (base) ──────────────────────────────────────── */
+
+.ai-sidebar-text {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* ── Index Number (base) ───────────────────────────────────── */
+
+.ai-sidebar-index {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  font-family: 'SF Mono', monospace !important;
+}
+
+/* ── Search (base) ─────────────────────────────────────────── */
+
+#ai-sidebar-search {
+  padding: 8px 12px !important;
+  margin: 8px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  width: calc(100% - 16px) !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  font-family: -apple-system, sans-serif !important;
+  border: 1px solid transparent !important;
+}
+
+/* ── Hidden item ───────────────────────────────────────────── */
+
+.ai-sidebar-item.hidden-item {
+  display: none !important;
+}
+
+/* ── Actions Container ─────────────────────────────────────── */
+
+.ai-sidebar-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+  opacity: 0 !important;
+  transition: opacity 0.15s !important;
+  align-self: stretch !important;
+}
+
+.ai-sidebar-item:hover .ai-sidebar-actions {
+  opacity: 1 !important;
+}
+
+/* ── Pin Button (base) ─────────────────────────────────────── */
+
+.ai-sidebar-pin {
+  cursor: pointer !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+}
+
+.ai-sidebar-item.pinned .ai-sidebar-actions {
+  opacity: 0.6 !important;
+}
+
+/* ── Copy Button (base) ────────────────────────────────────── */
+
+.ai-sidebar-copy {
+  cursor: pointer !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  transition: color 0.15s !important;
+}
+
+/* ── Jump to Latest (base) ─────────────────────────────────── */
+
+#ai-sidebar-jump {
+  padding: 10px !important;
+  text-align: center !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  transition: color 0.15s, background 0.15s !important;
+}
+
+/* ── Section Headers (base) ────────────────────────────────── */
+
+.ai-sidebar-section-header {
+  padding: 6px 16px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-family: 'SF Mono', monospace !important;
+}
+
+/* ── Pinned item left border (base) ────────────────────────── */
+
+.ai-sidebar-item.pinned {
+  border-left: 2px solid !important;
+  padding-left: 14px !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   CLAUDE THEME — amber/dark
+   ════════════════════════════════════════════════════════════ */
+
+#ai-sidebar-toggle.theme-claude-ai {
+  background: #d97706;
+}
+
+#ai-sidebar-toggle.theme-claude-ai:hover {
+  background: #b45309;
+}
+
+#ai-sidebar.theme-claude-ai {
+  background: #1a1a1a !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-title {
+  color: #737373 !important;
+  border-bottom-color: #2a2a2a !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-search {
+  background: #111 !important;
+  border-color: #2a2a2a !important;
+  color: #e5e5e5 !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-search:focus {
+  border-color: #d97706 !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-item {
+  color: #a3a3a3 !important;
+  border-bottom: 1px solid #1f1f1f !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-item:hover {
+  background: #222222 !important;
+  color: #e5e5e5 !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-text {
+  color: #a3a3a3 !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-index {
+  background: #d97706 !important;
+  color: #000 !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-pin,
+#ai-sidebar.theme-claude-ai .ai-sidebar-copy {
+  color: #d97706 !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-section-header {
+  color: #d97706 !important;
+  background: #111 !important;
+  border-top: 1px solid #2a2a2a !important;
+  border-bottom: 1px solid #2a2a2a !important;
+}
+
+#ai-sidebar.theme-claude-ai .ai-sidebar-item.pinned {
+  border-left-color: #d97706 !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-jump {
+  border-top: 1px solid #2a2a2a !important;
+  color: #737373 !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-jump:hover {
+  color: #e5e5e5 !important;
+  background: #222 !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   GEMINI THEME — sky blue/dark
+   ════════════════════════════════════════════════════════════ */
+
+#ai-sidebar-toggle.theme-gemini-google-com {
+  background: #1a73e8;
+}
+
+#ai-sidebar-toggle.theme-gemini-google-com:hover {
+  background: #1557b0;
+}
+
+#ai-sidebar.theme-gemini-google-com {
+  background: #1e1e2e !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-title {
+  color: #7ab3f5 !important;
+  border-bottom-color: #2a2a3e !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-search {
+  background: #2a2a3e !important;
+  border-color: #3a3a5e !important;
+  color: #e8eaed !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-search:focus {
+  border-color: #1a73e8 !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-item {
+  color: #bdc1c6 !important;
+  border-bottom: 1px solid #2a2a3e !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-item:hover {
+  background: #2a2a3e !important;
+  color: #e8eaed !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-text {
+  color: #bdc1c6 !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-index {
+  background: #1a73e8 !important;
+  color: #fff !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-pin,
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-copy {
+  color: #1a73e8 !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-section-header {
+  color: #1a73e8 !important;
+  background: #16162a !important;
+  border-top: 1px solid #2a2a3e !important;
+  border-bottom: 1px solid #2a2a3e !important;
+}
+
+#ai-sidebar.theme-gemini-google-com .ai-sidebar-item.pinned {
+  border-left-color: #1a73e8 !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-jump {
+  border-top: 1px solid #2a2a3e !important;
+  color: #7ab3f5 !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-jump:hover {
+  color: #e8eaed !important;
+  background: #2a2a3e !important;
+}
