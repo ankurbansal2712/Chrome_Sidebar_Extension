@@ -26,7 +26,6 @@
   top: 0 !important;
   bottom: 0;
   height: auto;
-  padding-bottom: 40px;
   right: -220px;
   width: 220px;
   overflow: hidden !important;
@@ -160,15 +159,65 @@
   transition: color 0.15s !important;
 }
 
-/* ── Jump to Latest (base) ─────────────────────────────────── */
+/* ── Scroll Controls ───────────────────────────────────────── */
 
-#ai-sidebar-jump {
-  padding: 10px !important;
-  text-align: center !important;
-  font-size: 16px !important;
-  cursor: pointer !important;
+#ai-sidebar-scroll-controls {
+  display: flex !important;
   flex-shrink: 0 !important;
+}
+
+#ai-sidebar-up,
+#ai-sidebar-down {
+  flex: 1 !important;
+  padding: 6px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
   transition: color 0.15s, background 0.15s !important;
+}
+
+#ai-sidebar-up {
+  border-right: 1px solid #2a2a2a !important;
+}
+
+/* Claude theme */
+#ai-sidebar.theme-claude-ai #ai-sidebar-scroll-controls {
+  border-top: 1px solid #2a2a2a !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-up,
+#ai-sidebar.theme-claude-ai #ai-sidebar-down {
+  color: #737373 !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-up:hover,
+#ai-sidebar.theme-claude-ai #ai-sidebar-down:hover {
+  color: #e5e5e5 !important;
+  background: #222 !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-up {
+  border-right-color: #2a2a2a !important;
+}
+
+/* Gemini theme */
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-scroll-controls {
+  border-top: 1px solid #2a2a3e !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-up,
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-down {
+  color: #7ab3f5 !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-up:hover,
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-down:hover {
+  color: #e8eaed !important;
+  background: #2a2a3e !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-up {
+  border-right-color: #2a2a3e !important;
 }
 
 /* ── Section Headers (base) ────────────────────────────────── */

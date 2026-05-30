@@ -73,28 +73,32 @@ function createSidebar() {
   sidebar.appendChild(search);
   sidebar.appendChild(list);
 
-  const jumpBtn = document.createElement('div');
-    jumpBtn.id = 'ai-sidebar-jump';
-    jumpBtn.textContent = '⬇';
-    jumpBtn.title = 'Jump to latest message';
+  const scrollControls = document.createElement('div');
+  scrollControls.id = 'ai-sidebar-scroll-controls';
 
-    jumpBtn.addEventListener('click', () => {
-    const messages = getMessages();
-    if (messages.length === 0) return;
-    const lastMessage = messages[messages.length - 1];
+  const upBtn = document.createElement('div');
+  upBtn.id = 'ai-sidebar-up';
+  upBtn.textContent = '⬆';
+  upBtn.title = 'Scroll up';
 
-    // Scroll sidebar list to bottom
+  const downBtn = document.createElement('div');
+  downBtn.id = 'ai-sidebar-down';
+  downBtn.textContent = '⬇';
+  downBtn.title = 'Scroll down';
+
+  upBtn.addEventListener('click', () => {
     const list = document.getElementById('ai-sidebar-list');
-    if (list) list.scrollTop = list.scrollHeight;
+    if (list) list.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-    // Scroll page to last message — don't close sidebar
-    lastMessage.scrollIntoView({ behavior: 'instant', block: 'center' });
-    setTimeout(() => {
-        lastMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
-    });
+  downBtn.addEventListener('click', () => {
+    const list = document.getElementById('ai-sidebar-list');
+    if (list) list.scrollTo({ top: list.scrollHeight, behavior: 'smooth' });
+  });
 
-    sidebar.appendChild(jumpBtn);
+  scrollControls.appendChild(upBtn);
+  scrollControls.appendChild(downBtn);
+  sidebar.appendChild(scrollControls);
 
   document.body.appendChild(toggle);
   document.body.appendChild(sidebar);
