@@ -100,6 +100,14 @@ function createSidebar() {
   scrollControls.appendChild(downBtn);
   sidebar.appendChild(scrollControls);
 
+  const supportBtn = document.createElement('div');
+  supportBtn.id = 'ai-sidebar-support';
+  supportBtn.textContent = '☕ \u00A0\u00A0BUY ME A COFFEE!';
+  supportBtn.addEventListener('click', () => {
+    window.open('https://razorpay.me/@ankurbansal8773', '_blank');
+  });
+  sidebar.appendChild(supportBtn);
+
   document.body.appendChild(toggle);
   document.body.appendChild(sidebar);
 

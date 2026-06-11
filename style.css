@@ -391,3 +391,31 @@
   color: #e8eaed !important;
   background: #2a2a3e !important;
 }
+
+/* ── Support Button ────────────────────────────────────────── */
+
+#ai-sidebar-support {
+  padding: 8px 16px !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  text-align: center !important;
+  transition: opacity 0.15s !important;
+  opacity: 0.7 !important;
+  font-family: -apple-system, sans-serif !important;
+}
+
+#ai-sidebar-support:hover {
+  opacity: 1 !important;
+}
+
+#ai-sidebar.theme-claude-ai #ai-sidebar-support {
+  background: #d97706 !important;
+  color: white !important;
+  border-top: 1px solid #2a2a2a !important;
+}
+
+#ai-sidebar.theme-gemini-google-com #ai-sidebar-support {
+  color: #1a73e8 !important;
+  border-top: 1px solid #2a2a3e !important;
+}
